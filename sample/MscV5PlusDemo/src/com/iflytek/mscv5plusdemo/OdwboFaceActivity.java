@@ -18,6 +18,7 @@ import com.iflytek.cloud.SpeechSynthesizer;
 import com.iflytek.cloud.SynthesizerListener;
 import com.iflytek.speech.setting.IatSettings;
 import com.iflytek.speech.util.JsonParser;
+import com.odwbo.voice.R;
 
 // 语音转写+合成
 public class OdwboFaceActivity extends Activity {
@@ -167,9 +168,9 @@ public class OdwboFaceActivity extends Activity {
 		mIat = SpeechRecognizer.createRecognizer(this, mInitListener);
 		// 设置参数
 		setIatParam();
-//		// 初始化合成对象
-//		mTts = SpeechSynthesizer.createSynthesizer(this, mTtsInitListener);
-//		setTtsParam();
+		// // 初始化合成对象
+		mTts = SpeechSynthesizer.createSynthesizer(this, mTtsInitListener);
+		setTtsParam();
 		mToast = Toast.makeText(this, "", Toast.LENGTH_SHORT);
 		mRecognizeHandler.sendEmptyMessageDelayed(1, Constants.RECONGIZE_DELAY);
 	}
