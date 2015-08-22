@@ -135,6 +135,11 @@ public class UnderstanderActivity extends BaseActivity implements InitListener {
 	}
 
 	@Override
+	public void onBackPressed() {
+		// super.onBackPressed();
+	}
+
+	@Override
 	public void onInit(int code) {
 		log("onInit:" + code);
 	}
