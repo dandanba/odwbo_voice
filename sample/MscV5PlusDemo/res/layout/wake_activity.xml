@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp" >
+   
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:gravity="center">
+        
+        <TextView 
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:gravity="center_horizontal"
+            android:text="唤醒示例"/>
+       
+    </LinearLayout>
+    
+ 	<TextView
+ 	    android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/wake_demo_hint"
+        android:textSize="18sp" />
+ 	
+ 	<TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/default_wake_resource_hint"
+        android:layout_gravity="left"
+        android:textSize="16sp" />
+ 	
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" 
+        android:layout_marginTop="10dip">
+        
+        <TextView
+            android:id="@+id/txt_thresh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="门限值:"
+            android:textSize="18sp" />
+
+        <SeekBar
+            android:id="@+id/seekBar_thresh"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp" />
+
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" 
+        android:layout_marginTop="10dip">
+    
+        <Button 
+	        android:id="@+id/btn_start"
+	        android:layout_width="0dip"
+	        android:layout_weight="1"
+	        android:layout_height="wrap_content"
+	        android:text="开始唤醒"/>
+    
+	    <Button 
+	        android:id="@+id/btn_stop"
+	        android:layout_width="0dip"
+	        android:layout_weight="1"
+	        android:layout_height="wrap_content"
+	        android:text="停止唤醒" />
+
+    </LinearLayout>
+    
+    <TextView
+        android:id="@+id/txt_show_msg"
+        android:paddingTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
