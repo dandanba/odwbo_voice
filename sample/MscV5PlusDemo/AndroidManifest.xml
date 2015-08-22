@@ -21,7 +21,7 @@
 		<activity
 			android:name=".UnderstanderActivity"
 			configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|fontScale"
-			android:screenOrientation="portrait" >
+			android:screenOrientation="landscape" >
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
 				<category android:name="android.intent.category.LAUNCHER" />
