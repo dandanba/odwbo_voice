@@ -17,6 +17,8 @@ import com.iflytek.cloud.SpeechUnderstander;
 import com.iflytek.cloud.SpeechUnderstanderListener;
 import com.iflytek.cloud.SynthesizerListener;
 import com.iflytek.cloud.UnderstanderResult;
+import com.odwbo.voice.api.Answer;
+import com.odwbo.voice.api.Result;
 
 // 语音理解＋合成
 public class OdwboUnderstanderActivity extends Activity implements InitListener {
@@ -26,7 +28,15 @@ public class OdwboUnderstanderActivity extends Activity implements InitListener 
 		public void onResult(UnderstanderResult result) {
 			final String text = null == result ? "" : result.getResultString();
 			log("onResult:" + text);
-			handleUnderstanderResult(text);
+			final Result r;
+			final Answer answer;
+			if (!TextUtils.isEmpty(text)// text 有效
+					&& (r = GsonUtils.fromJson(text, Result.class)) != null// result 有效
+					&& (answer = r.getAnswer()) != null) { // answer 有效
+				speek(answer.text);
+			} else {
+				startUnderstanding(); // 理解错误
+			}
 		}
 
 		@Override
@@ -88,7 +98,7 @@ public class OdwboUnderstanderActivity extends Activity implements InitListener 
 		@Override
 		public void onCompleted(SpeechError error) {
 			log("onCompleted:" + (error == null ? "null" : error.getPlainDescription(true)));
-			handleTtsCommpleted();
+			startUnderstanding(); // 说完话
 		}
 
 		@Override
@@ -101,8 +111,7 @@ public class OdwboUnderstanderActivity extends Activity implements InitListener 
 		public void handleMessage(Message msg) {
 			switch (msg.what) {
 			case 1:
-				removeMessages(1);
-				startUnderstanding();
+				doUnderstanding();
 				break;
 			default:
 				break;
@@ -117,7 +126,7 @@ public class OdwboUnderstanderActivity extends Activity implements InitListener 
 		super.onCreate(savedInstanceState);
 		setupUnderstander();
 		setupTts();
-		handleTtsCommpleted();
+		startUnderstanding(); // 程序启动
 	}
 
 	@Override
@@ -146,7 +155,15 @@ public class OdwboUnderstanderActivity extends Activity implements InitListener 
 		mSpeechUnderstander.setParameter(SpeechConstant.ASR_AUDIO_PATH, Environment.getExternalStorageDirectory() + "/iflytek/wavaudio.pcm");// 设置音频保存路径
 	}
 
+	// 理解错误，开始收听
+	// 启动程序，开始收听
+	// 说完话，开始收听
 	private void startUnderstanding() {
+		mUnderstanderHandler.sendEmptyMessageDelayed(1, Constants.RECONGIZE_DELAY);
+	}
+
+	private void doUnderstanding() {
+		mUnderstanderHandler.removeMessages(1);
 		if (mSpeechUnderstander.isUnderstanding()) {// 开始前检查状态
 			mSpeechUnderstander.stopUnderstanding();
 		}
@@ -179,18 +196,6 @@ public class OdwboUnderstanderActivity extends Activity implements InitListener 
 	private void speek(String text) {
 		int code = mTts.startSpeaking(text, mTtsListener);
 		log("onStartSpeaking:" + code);
-	}
-
-	private void handleUnderstanderResult(String text) {
-		if (!TextUtils.isEmpty(text)) {
-			speek(text);
-		} else {
-			handleTtsCommpleted();
-		}
-	}
-
-	private void handleTtsCommpleted() {
-		mUnderstanderHandler.sendEmptyMessageDelayed(1, Constants.RECONGIZE_DELAY);
 	}
 
 	private void log(final String text) {
