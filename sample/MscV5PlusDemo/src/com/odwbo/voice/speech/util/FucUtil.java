@@ -1,4 +1,4 @@
-package com.iflytek.speech.util;
+package com.odwbo.voice.speech.util;
 import java.io.InputStream;
 import android.content.Context;
 

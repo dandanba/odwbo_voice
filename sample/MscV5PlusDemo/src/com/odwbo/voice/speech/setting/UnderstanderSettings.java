@@ -1,4 +1,4 @@
-package com.iflytek.speech.setting;
+package com.odwbo.voice.speech.setting;
 
 /**
  * 语义理解设置界面

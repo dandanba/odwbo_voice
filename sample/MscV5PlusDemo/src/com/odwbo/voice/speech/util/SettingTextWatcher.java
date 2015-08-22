@@ -1,4 +1,4 @@
-package com.iflytek.speech.util;
+package com.odwbo.voice.speech.util;
 
 import java.util.regex.Pattern;
 import android.content.Context;

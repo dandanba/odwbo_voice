@@ -1,4 +1,4 @@
-package com.iflytek.mscv5plusdemo;
+package com.odwbo.voice;
 
 import android.app.Activity;
 import android.content.SharedPreferences;
@@ -16,9 +16,9 @@ import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.SpeechRecognizer;
 import com.iflytek.cloud.SpeechSynthesizer;
 import com.iflytek.cloud.SynthesizerListener;
-import com.iflytek.speech.setting.IatSettings;
-import com.iflytek.speech.util.JsonParser;
 import com.odwbo.voice.R;
+import com.odwbo.voice.speech.setting.IatSettings;
+import com.odwbo.voice.speech.util.JsonParser;
 
 // 语音转写+合成
 public class OdwboFaceActivity extends Activity {
@@ -96,7 +96,6 @@ public class OdwboFaceActivity extends Activity {
 		public void onEvent(int eventType, int arg1, int arg2, Bundle obj) {
 		}
 	};
-	private int mRet = 0;// 函数调用返回值
 	// 缓冲进度
 	private int mPercentForBuffering = 0;
 	// 播放进度
@@ -238,9 +237,9 @@ public class OdwboFaceActivity extends Activity {
 
 	private void recogize() {
 		// 不显示听写对话框
-		mRet = mIat.startListening(recognizerListener);
-		if (mRet != ErrorCode.SUCCESS) {
-			showTip("听写失败,错误码：" + mRet);
+		int code = mIat.startListening(recognizerListener);
+		if (code != ErrorCode.SUCCESS) {
+			showTip("听写失败,错误码：" + code);
 		} else {
 			showTip(getString(R.string.text_begin));
 		}

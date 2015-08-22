@@ -1,4 +1,4 @@
-package com.iflytek.mscv5plusdemo;
+package com.odwbo.voice;
 
 public class Constants {
 	public static final long RECONGIZE_DELAY = 3000;
