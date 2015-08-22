@@ -5,7 +5,6 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
-import com.iflytek.cloud.ErrorCode;
 import com.iflytek.cloud.InitListener;
 import com.iflytek.cloud.SpeechConstant;
 import com.iflytek.cloud.SpeechError;
@@ -18,7 +17,7 @@ import com.odwbo.voice.api.Answer;
 import com.odwbo.voice.api.Result;
 
 // 语音理解＋合成
-public class OdwboUnderstanderActivity extends BaseActivity implements InitListener {
+public class UnderstanderActivity extends BaseActivity implements InitListener {
 	private final SpeechUnderstanderListener mUnderstanderListener = new SpeechUnderstanderListener() {
 		@Override
 		public void onResult(UnderstanderResult result) {
@@ -121,6 +120,7 @@ public class OdwboUnderstanderActivity extends BaseActivity implements InitListe
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_understander);
 		setupUnderstander();
 		setupTts();
 		startUnderstanding(); // 程序启动
