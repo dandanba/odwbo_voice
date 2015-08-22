@@ -14,19 +14,20 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
-public class MainActivity extends Activity implements OnClickListener{
-
+public class MainActivity extends Activity implements OnClickListener {
 	private Toast mToast;
+
 	@SuppressLint("ShowToast")
-	public void onCreate(Bundle savedInstanceState){
+	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		// 设置标题栏（无标题）
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.main);
-		mToast = Toast.makeText(this,"",Toast.LENGTH_SHORT);
-		SimpleAdapter listitemAdapter = new SimpleAdapter();		
-		((ListView)findViewById(R.id.listview_main)).setAdapter(listitemAdapter);
+		mToast = Toast.makeText(this, "", Toast.LENGTH_SHORT);
+		SimpleAdapter listitemAdapter = new SimpleAdapter();
+		((ListView) findViewById(R.id.listview_main)).setAdapter(listitemAdapter);
 	}
+
 	@Override
 	public void onClick(View view) {
 		int tag = Integer.parseInt(view.getTag().toString());
@@ -54,34 +55,33 @@ public class MainActivity extends Activity implements OnClickListener{
 			break;
 		case 5:
 			// 声纹
-			showTip("请登录：http://open.voicecloud.cn/ 下载体验吧！");
+			intent = new Intent(this, OdwboFaceActivity.class);
 			break;
 		default:
 			showTip("此功能将于近期开放，敬请期待。");
 			break;
 		}
 		if (intent != null) {
-			startActivity(intent);		
+			startActivity(intent);
 		}
 	}
+	// Menu 列表
+	String items[] = { "立刻体验语音听写", "立刻体验语法识别", "立刻体验语义理解", "立刻体验语音合成", "立刻体验语音唤醒", "立刻体验声纹密码" };
 
-
-	//Menu 列表
-	String items[] = {"立刻体验语音听写","立刻体验语法识别","立刻体验语义理解","立刻体验语音合成","立刻体验语音唤醒","立刻体验声纹密码"};
-	private class SimpleAdapter extends BaseAdapter{
-		public View getView(int position, View convertView, ViewGroup parent) 
-		{	   		  
-			if(null == convertView){
+	private class SimpleAdapter extends BaseAdapter {
+		public View getView(int position, View convertView, ViewGroup parent) {
+			if (null == convertView) {
 				LayoutInflater factory = LayoutInflater.from(MainActivity.this);
 				View mView = factory.inflate(R.layout.list_items, null);
 				convertView = mView;
 			}
-			Button btn = (Button)convertView.findViewById(R.id.btn);
+			Button btn = (Button) convertView.findViewById(R.id.btn);
 			btn.setOnClickListener(MainActivity.this);
 			btn.setTag(position);
 			btn.setText(items[position]);
 			return convertView;
 		}
+
 		@Override
 		public int getCount() {
 			return items.length;
@@ -96,9 +96,9 @@ public class MainActivity extends Activity implements OnClickListener{
 		public long getItemId(int position) {
 			return 0;
 		}
-	}	
-	private void showTip(final String str)
-	{
+	}
+
+	private void showTip(final String str) {
 		runOnUiThread(new Runnable() {
 			@Override
 			public void run() {
@@ -106,5 +106,5 @@ public class MainActivity extends Activity implements OnClickListener{
 				mToast.show();
 			}
 		});
-	}	
+	}
 }
