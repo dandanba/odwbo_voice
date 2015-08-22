@@ -1,13 +1,10 @@
 package com.odwbo.voice;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
-import android.util.Log;
-import android.widget.Toast;
 import com.iflytek.cloud.ErrorCode;
 import com.iflytek.cloud.InitListener;
 import com.iflytek.cloud.SpeechConstant;
@@ -21,8 +18,7 @@ import com.odwbo.voice.api.Answer;
 import com.odwbo.voice.api.Result;
 
 // 语音理解＋合成
-public class OdwboUnderstanderActivity extends Activity implements InitListener {
-	private static String TAG = OdwboUnderstanderActivity.class.getSimpleName();
+public class OdwboUnderstanderActivity extends BaseActivity implements InitListener {
 	private final SpeechUnderstanderListener mUnderstanderListener = new SpeechUnderstanderListener() {
 		@Override
 		public void onResult(UnderstanderResult result) {
@@ -57,6 +53,7 @@ public class OdwboUnderstanderActivity extends Activity implements InitListener 
 		@Override
 		public void onError(SpeechError error) {// 会话发生错误回调接口
 			log("onError:" + (error == null ? "null" : error.getErrorCode()));
+			startUnderstanding(); // 发生错误回调
 		}
 
 		@Override
@@ -139,10 +136,7 @@ public class OdwboUnderstanderActivity extends Activity implements InitListener 
 
 	@Override
 	public void onInit(int code) {
-		Log.d(TAG, "speechUnderstanderListener init() code = " + code);
-		if (code != ErrorCode.SUCCESS) {
-			log("onInit：" + code);
-		}
+		log("onInit:" + code);
 	}
 
 	private void setupUnderstander() {
@@ -158,6 +152,7 @@ public class OdwboUnderstanderActivity extends Activity implements InitListener 
 	// 理解错误，开始收听
 	// 启动程序，开始收听
 	// 说完话，开始收听
+	// 发生错误回调，开始收听
 	private void startUnderstanding() {
 		mUnderstanderHandler.sendEmptyMessageDelayed(1, Constants.RECONGIZE_DELAY);
 	}
@@ -196,18 +191,5 @@ public class OdwboUnderstanderActivity extends Activity implements InitListener 
 	private void speek(String text) {
 		int code = mTts.startSpeaking(text, mTtsListener);
 		log("onStartSpeaking:" + code);
-	}
-
-	private void log(final String text) {
-		if (Constants.SHOW_TIP) {
-			runOnUiThread(new Runnable() {
-				@Override
-				public void run() {
-					Toast.makeText(OdwboUnderstanderActivity.this, text, Toast.LENGTH_SHORT).show();
-				}
-			});
-		} else {
-			Log.i(TAG, text);
-		}
 	}
 }
