@@ -5,6 +5,7 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
+import android.widget.ImageView;
 import com.iflytek.cloud.InitListener;
 import com.iflytek.cloud.SpeechConstant;
 import com.iflytek.cloud.SpeechError;
@@ -116,11 +117,13 @@ public class UnderstanderActivity extends BaseActivity implements InitListener {
 	};
 	private SpeechUnderstander mSpeechUnderstander;// 语义理解对象（语音到语义）。
 	private SpeechSynthesizer mTts;// 语音合成对象
+	private ImageView mFaceImage;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_understander);
+		mFaceImage = (ImageView) findViewById(R.id.face_image);
 		setupUnderstander();
 		setupTts();
 		startUnderstanding(); // 程序启动

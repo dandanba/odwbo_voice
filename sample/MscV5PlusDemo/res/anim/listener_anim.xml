@@ -2,111 +2,90 @@
 <animation-list xmlns:android="http://schemas.android.com/apk/res/android"
 	android:oneshot="false" >
 	<item
-		android:drawable="@drawable/think01"
+		android:drawable="@drawable/listener01"
 		android:duration="40"/>
 	<item
-		android:drawable="@drawable/think02"
+		android:drawable="@drawable/listener02"
 		android:duration="40"/>
 	<item
-		android:drawable="@drawable/think03"
+		android:drawable="@drawable/listener03"
 		android:duration="40"/>
 	<item
-		android:drawable="@drawable/think04"
+		android:drawable="@drawable/listener04"
 		android:duration="40"/>
 	<item
-		android:drawable="@drawable/think05"
+		android:drawable="@drawable/listener05"
 		android:duration="40"/>
 	<item
-		android:drawable="@drawable/think06"
+		android:drawable="@drawable/listener06"
 		android:duration="40"/>
 	<item
-		android:drawable="@drawable/think07"
+		android:drawable="@drawable/listener07"
 		android:duration="40"/>
 	<item
-		android:drawable="@drawable/think08"
+		android:drawable="@drawable/listener08"
 		android:duration="40"/>
 	<item
-		android:drawable="@drawable/think09"
+		android:drawable="@drawable/listener09"
 		android:duration="40"/>
 	<item
-		android:drawable="@drawable/think09"
+		android:drawable="@drawable/listener09"
 		android:duration="40"/>
 	<item
-		android:drawable="@drawable/think10"
+		android:drawable="@drawable/listener10"
 		android:duration="40"/>
 	<item
-		android:drawable="@drawable/think11"
+		android:drawable="@drawable/listener11"
 		android:duration="40"/>
 	<item
-		android:drawable="@drawable/think12"
+		android:drawable="@drawable/listener12"
 		android:duration="40"/>
 	<item
-		android:drawable="@drawable/think13"
+		android:drawable="@drawable/listener13"
 		android:duration="40"/>
 	<item
-		android:drawable="@drawable/think14"
+		android:drawable="@drawable/listener14"
 		android:duration="40"/>
 	<item
-		android:drawable="@drawable/think15"
+		android:drawable="@drawable/listener15"
 		android:duration="40"/>
 	<item
-		android:drawable="@drawable/think16"
+		android:drawable="@drawable/listener16"
 		android:duration="40"/>
 	<item
-		android:drawable="@drawable/think17"
+		android:drawable="@drawable/listener17"
 		android:duration="40"/>
 	<item
-		android:drawable="@drawable/think18"
+		android:drawable="@drawable/listener18"
 		android:duration="40"/>
 	<item
-		android:drawable="@drawable/think19"
+		android:drawable="@drawable/listener19"
 		android:duration="40"/>
 	<item
-		android:drawable="@drawable/think20"
+		android:drawable="@drawable/listener20"
 		android:duration="40"/>
 	<item
-		android:drawable="@drawable/think21"
+		android:drawable="@drawable/listener21"
 		android:duration="40"/>
 	<item
-		android:drawable="@drawable/think22"
+		android:drawable="@drawable/listener22"
 		android:duration="40"/>
 	<item
-		android:drawable="@drawable/think23"
+		android:drawable="@drawable/listener23"
 		android:duration="40"/>
 	<item
-		android:drawable="@drawable/think24"
+		android:drawable="@drawable/listener24"
 		android:duration="40"/>
 	<item
-		android:drawable="@drawable/think25"
+		android:drawable="@drawable/listener25"
 		android:duration="40"/>
 	<item
-		android:drawable="@drawable/think26"
+		android:drawable="@drawable/listener26"
 		android:duration="40"/>
 	<item
-		android:drawable="@drawable/think27"
+		android:drawable="@drawable/listener27"
 		android:duration="40"/>
 	<item
-		android:drawable="@drawable/think28"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/think29"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/think30"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/think31"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/think32"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/think33"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/think34"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/think35"
+		android:drawable="@drawable/listener28"
 		android:duration="40"/>
 </animation-list>
