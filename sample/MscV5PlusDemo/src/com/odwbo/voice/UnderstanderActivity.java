@@ -1,5 +1,6 @@
 package com.odwbo.voice;
 
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
@@ -162,10 +163,14 @@ public class UnderstanderActivity extends BaseActivity implements InitListener {
 	// 说完话，开始收听
 	// 发生错误回调，开始收听
 	private void startUnderstanding() {
+		mFaceImage.setImageResource(R.drawable.hello_world);
 		mUnderstanderHandler.sendEmptyMessageDelayed(1, Constants.RECONGIZE_DELAY);
 	}
 
 	private void doUnderstanding() {
+		mFaceImage.setImageResource(R.anim.listener_anim);
+		AnimationDrawable animationDrawable = (AnimationDrawable) mFaceImage.getDrawable();
+		animationDrawable.start();
 		mUnderstanderHandler.removeMessages(1);
 		if (mSpeechUnderstander.isUnderstanding()) {// 开始前检查状态
 			mSpeechUnderstander.stopUnderstanding();
@@ -197,6 +202,9 @@ public class UnderstanderActivity extends BaseActivity implements InitListener {
 	}
 
 	private void speek(String text) {
+		mFaceImage.setImageResource(R.anim.think_anim);
+		AnimationDrawable animationDrawable = (AnimationDrawable) mFaceImage.getDrawable();
+		animationDrawable.start();
 		int code = mTts.startSpeaking(text, mTtsListener);
 		log("onStartSpeaking:" + code);
 	}

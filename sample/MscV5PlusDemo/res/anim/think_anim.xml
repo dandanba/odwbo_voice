@@ -8,13 +8,7 @@
 		android:drawable="@drawable/think02"
 		android:duration="40"/>
 	<item
-		android:drawable="@drawable/think03"
-		android:duration="40"/>
-	<item
 		android:drawable="@drawable/think04"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/think05"
 		android:duration="40"/>
 	<item
 		android:drawable="@drawable/think06"
@@ -26,87 +20,12 @@
 		android:drawable="@drawable/think08"
 		android:duration="40"/>
 	<item
-		android:drawable="@drawable/think09"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/think09"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/think10"
-		android:duration="40"/>
-	<item
 		android:drawable="@drawable/think11"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/think12"
 		android:duration="40"/>
 	<item
 		android:drawable="@drawable/think13"
 		android:duration="40"/>
 	<item
 		android:drawable="@drawable/think14"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/think15"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/think16"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/think17"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/think18"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/think19"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/think20"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/think21"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/think22"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/think23"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/think24"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/think25"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/think26"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/think27"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/think28"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/think29"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/think30"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/think31"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/think32"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/think33"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/think34"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/think35"
 		android:duration="40"/>
 </animation-list>

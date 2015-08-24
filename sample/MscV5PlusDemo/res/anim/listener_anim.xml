@@ -5,16 +5,10 @@
 		android:drawable="@drawable/listener01"
 		android:duration="40"/>
 	<item
-		android:drawable="@drawable/listener02"
-		android:duration="40"/>
-	<item
 		android:drawable="@drawable/listener03"
 		android:duration="40"/>
 	<item
 		android:drawable="@drawable/listener04"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/listener05"
 		android:duration="40"/>
 	<item
 		android:drawable="@drawable/listener06"
@@ -26,66 +20,15 @@
 		android:drawable="@drawable/listener08"
 		android:duration="40"/>
 	<item
-		android:drawable="@drawable/listener09"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/listener09"
-		android:duration="40"/>
-	<item
 		android:drawable="@drawable/listener10"
 		android:duration="40"/>
 	<item
 		android:drawable="@drawable/listener11"
 		android:duration="40"/>
 	<item
-		android:drawable="@drawable/listener12"
-		android:duration="40"/>
-	<item
 		android:drawable="@drawable/listener13"
 		android:duration="40"/>
 	<item
 		android:drawable="@drawable/listener14"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/listener15"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/listener16"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/listener17"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/listener18"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/listener19"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/listener20"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/listener21"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/listener22"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/listener23"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/listener24"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/listener25"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/listener26"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/listener27"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/listener28"
 		android:duration="40"/>
 </animation-list>

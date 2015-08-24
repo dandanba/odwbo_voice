@@ -8,9 +8,6 @@
 		android:drawable="@drawable/response02"
 		android:duration="40"/>
 	<item
-		android:drawable="@drawable/response03"
-		android:duration="40"/>
-	<item
 		android:drawable="@drawable/response04"
 		android:duration="40"/>
 	<item
@@ -23,12 +20,6 @@
 		android:drawable="@drawable/response07"
 		android:duration="40"/>
 	<item
-		android:drawable="@drawable/response08"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/response09"
-		android:duration="40"/>
-	<item
 		android:drawable="@drawable/response09"
 		android:duration="40"/>
 	<item
@@ -39,56 +30,5 @@
 		android:duration="40"/>
 	<item
 		android:drawable="@drawable/response12"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/response13"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/response14"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/response15"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/response16"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/response17"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/response18"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/response19"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/response20"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/response21"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/response22"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/response23"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/response24"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/response25"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/response26"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/response27"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/response28"
-		android:duration="40"/>
-	<item
-		android:drawable="@drawable/response29"
 		android:duration="40"/>
 </animation-list>
