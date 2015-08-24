@@ -3,29 +3,29 @@
 	android:oneshot="false" >
 	<item
 		android:drawable="@drawable/think01"
-		android:duration="40"/>
+		android:duration="100"/>
 	<item
 		android:drawable="@drawable/think02"
-		android:duration="40"/>
+		android:duration="100"/>
 	<item
 		android:drawable="@drawable/think04"
-		android:duration="40"/>
+		android:duration="100"/>
 	<item
 		android:drawable="@drawable/think06"
-		android:duration="40"/>
+		android:duration="100"/>
 	<item
 		android:drawable="@drawable/think07"
-		android:duration="40"/>
+		android:duration="100"/>
 	<item
 		android:drawable="@drawable/think08"
-		android:duration="40"/>
+		android:duration="100"/>
 	<item
 		android:drawable="@drawable/think11"
-		android:duration="40"/>
+		android:duration="100"/>
 	<item
 		android:drawable="@drawable/think13"
-		android:duration="40"/>
+		android:duration="100"/>
 	<item
 		android:drawable="@drawable/think14"
-		android:duration="40"/>
+		android:duration="100"/>
 </animation-list>

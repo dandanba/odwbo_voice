@@ -163,7 +163,9 @@ public class UnderstanderActivity extends BaseActivity implements InitListener {
 	// 说完话，开始收听
 	// 发生错误回调，开始收听
 	private void startUnderstanding() {
-		mFaceImage.setImageResource(R.drawable.hello_world);
+		mFaceImage.setImageResource(R.anim.appear_anim);
+		AnimationDrawable animationDrawable = (AnimationDrawable) mFaceImage.getDrawable();
+		animationDrawable.start();
 		mUnderstanderHandler.sendEmptyMessageDelayed(1, Constants.RECONGIZE_DELAY);
 	}
 

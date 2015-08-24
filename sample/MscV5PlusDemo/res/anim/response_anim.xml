@@ -3,32 +3,32 @@
 	android:oneshot="false" >
 	<item
 		android:drawable="@drawable/response01"
-		android:duration="40"/>
+		android:duration="100"/>
 	<item
 		android:drawable="@drawable/response02"
-		android:duration="40"/>
+		android:duration="100"/>
 	<item
 		android:drawable="@drawable/response04"
-		android:duration="40"/>
+		android:duration="100"/>
 	<item
 		android:drawable="@drawable/response05"
-		android:duration="40"/>
+		android:duration="100"/>
 	<item
 		android:drawable="@drawable/response06"
-		android:duration="40"/>
+		android:duration="100"/>
 	<item
 		android:drawable="@drawable/response07"
-		android:duration="40"/>
+		android:duration="100"/>
 	<item
 		android:drawable="@drawable/response09"
-		android:duration="40"/>
+		android:duration="100"/>
 	<item
 		android:drawable="@drawable/response10"
-		android:duration="40"/>
+		android:duration="100"/>
 	<item
 		android:drawable="@drawable/response11"
-		android:duration="40"/>
+		android:duration="100"/>
 	<item
 		android:drawable="@drawable/response12"
-		android:duration="40"/>
+		android:duration="100"/>
 </animation-list>
