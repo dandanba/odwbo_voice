@@ -19,7 +19,7 @@ import com.odwbo.voice.api.Answer;
 import com.odwbo.voice.api.Result;
 
 // 语音理解＋合成
-public class UnderstanderActivity extends BaseActivity implements InitListener {
+public class UnderstanderActivity extends BTActivity implements InitListener {
 	private final SpeechUnderstanderListener mUnderstanderListener = new SpeechUnderstanderListener() {
 		@Override
 		public void onResult(UnderstanderResult result) {
@@ -39,6 +39,17 @@ public class UnderstanderActivity extends BaseActivity implements InitListener {
 		@Override
 		public void onVolumeChanged(int v) { // 音量值0~30
 			log("onVolumeChanged:" + v);
+			if (v > 3) {
+				runOnUiThread(new Runnable() {
+					public void run() {
+						mFaceImage.setImageResource(R.anim.listener_anim);
+						AnimationDrawable animationDrawable = (AnimationDrawable) mFaceImage.getDrawable();
+						if (!animationDrawable.isRunning()) {
+							animationDrawable.start();
+						}
+					}
+				});
+			}
 		}
 
 		@Override
@@ -140,7 +151,7 @@ public class UnderstanderActivity extends BaseActivity implements InitListener {
 
 	@Override
 	public void onBackPressed() {
-		// super.onBackPressed();
+		super.onBackPressed();
 	}
 
 	@Override
@@ -163,16 +174,11 @@ public class UnderstanderActivity extends BaseActivity implements InitListener {
 	// 说完话，开始收听
 	// 发生错误回调，开始收听
 	private void startUnderstanding() {
-		mFaceImage.setImageResource(R.anim.appear_anim);
-		AnimationDrawable animationDrawable = (AnimationDrawable) mFaceImage.getDrawable();
-		animationDrawable.start();
+		mFaceImage.setImageResource(R.drawable.hello_world);
 		mUnderstanderHandler.sendEmptyMessageDelayed(1, Constants.RECONGIZE_DELAY);
 	}
 
 	private void doUnderstanding() {
-		mFaceImage.setImageResource(R.anim.listener_anim);
-		AnimationDrawable animationDrawable = (AnimationDrawable) mFaceImage.getDrawable();
-		animationDrawable.start();
 		mUnderstanderHandler.removeMessages(1);
 		if (mSpeechUnderstander.isUnderstanding()) {// 开始前检查状态
 			mSpeechUnderstander.stopUnderstanding();
@@ -204,6 +210,10 @@ public class UnderstanderActivity extends BaseActivity implements InitListener {
 	}
 
 	private void speek(String text) {
+		if (text.equals("转")) { // 特别控制
+			onSendTextMesage("speed:" + 250);
+			return;
+		}
 		mFaceImage.setImageResource(R.anim.think_anim);
 		AnimationDrawable animationDrawable = (AnimationDrawable) mFaceImage.getDrawable();
 		animationDrawable.start();
