@@ -210,14 +210,19 @@ public class UnderstanderActivity extends BTActivity implements InitListener {
 	}
 
 	private void speek(String text) {
-		if (text.equals("转")) { // 特别控制
-			onSendTextMesage("speed:" + 250);
-			return;
+		if (text.length() > 0) {
+			if (text.equals("转")) { // 特别控制
+				onSendTextMesage("speed:" + 250);
+				return;
+			}
+			if (text.length() > 30) {
+				text = text.substring(0, 30);
+			}
+			mFaceImage.setImageResource(R.anim.think_anim);
+			AnimationDrawable animationDrawable = (AnimationDrawable) mFaceImage.getDrawable();
+			animationDrawable.start();
+			int code = mTts.startSpeaking(text, mTtsListener);
+			log("onStartSpeaking:" + code);
 		}
-		mFaceImage.setImageResource(R.anim.think_anim);
-		AnimationDrawable animationDrawable = (AnimationDrawable) mFaceImage.getDrawable();
-		animationDrawable.start();
-		int code = mTts.startSpeaking(text, mTtsListener);
-		log("onStartSpeaking:" + code);
 	}
 }
