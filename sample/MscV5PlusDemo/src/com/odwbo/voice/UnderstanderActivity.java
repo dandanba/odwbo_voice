@@ -1,5 +1,4 @@
 package com.odwbo.voice;
-
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.os.Environment;
@@ -205,6 +204,14 @@ public class UnderstanderActivity extends BTActivity implements InitListener {
 				mSendHandler.mSendCount = 0;
 				mSendHandler.sendEmptyMessage(1);
 				return;
+			} else if (text.equals("走")) {
+				mSendHandler.mSendCount = 0;
+				mSendHandler.sendEmptyMessage(2);
+				return;
+			} else if (text.equals("退")) {
+				mSendHandler.mSendCount = 0;
+				mSendHandler.sendEmptyMessage(3);
+				return;
 			}
 			if (text.length() > 30) {
 				text = text.substring(0, 30);
@@ -238,8 +245,28 @@ public class UnderstanderActivity extends BTActivity implements InitListener {
 			switch (msg.what) {
 			case 1:
 				removeMessages(what);
-				if (mSendCount < 10) {
+				if (mSendCount < 9) {
 					onSendTextMesage("speed:" + 250);
+					sendEmptyMessageDelayed(what, 500);
+				} else {
+					speek("累死我了，主人！");
+				}
+				mSendCount++;
+				break;
+			case 2:
+				removeMessages(what);
+				if (mSendCount < 8) {
+					onSendTextMesage("touch:" + 900 + ":" + 150);
+					sendEmptyMessageDelayed(what, 500);
+				} else {
+					speek("累死我了，主人！");
+				}
+				mSendCount++;
+				break;
+			case 3:
+				removeMessages(what);
+				if (mSendCount < 8) {
+					onSendTextMesage("touch:" + 2700 + ":" + 150);
 					sendEmptyMessageDelayed(what, 500);
 				} else {
 					speek("累死我了，主人！");
