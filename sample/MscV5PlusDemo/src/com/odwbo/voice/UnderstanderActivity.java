@@ -115,18 +115,8 @@ public class UnderstanderActivity extends BTActivity implements InitListener {
 			log("onEvent:" + eventType);
 		}
 	};
-	private final Handler mUnderstanderHandler = new Handler() {
-		@Override
-		public void handleMessage(Message msg) {
-			switch (msg.what) {
-			case 1:
-				doUnderstanding();
-				break;
-			default:
-				break;
-			}
-		};
-	};
+	private final UnderstanderHandler mUnderstanderHandler = new UnderstanderHandler();
+	private final SendHandler mSendHandler = new SendHandler();
 	private SpeechUnderstander mSpeechUnderstander;// 语义理解对象（语音到语义）。
 	private SpeechSynthesizer mTts;// 语音合成对象
 	private ImageView mFaceImage;
@@ -212,7 +202,8 @@ public class UnderstanderActivity extends BTActivity implements InitListener {
 	private void speek(String text) {
 		if (text.length() > 0) {
 			if (text.equals("转")) { // 特别控制
-				onSendTextMesage("speed:" + 250);
+				mSendHandler.mSendCount = 0;
+				mSendHandler.sendEmptyMessage(1);
 				return;
 			}
 			if (text.length() > 30) {
@@ -224,5 +215,40 @@ public class UnderstanderActivity extends BTActivity implements InitListener {
 			int code = mTts.startSpeaking(text, mTtsListener);
 			log("onStartSpeaking:" + code);
 		}
+	}
+
+	class UnderstanderHandler extends Handler {
+		@Override
+		public void handleMessage(Message msg) {
+			switch (msg.what) {
+			case 1:
+				doUnderstanding();
+				break;
+			default:
+				break;
+			}
+		};
+	}
+
+	class SendHandler extends Handler {
+		public int mSendCount;
+
+		public void handleMessage(Message msg) {
+			final int what = msg.what;
+			switch (msg.what) {
+			case 1:
+				removeMessages(what);
+				if (mSendCount < 10) {
+					onSendTextMesage("speed:" + 250);
+					sendEmptyMessageDelayed(what, 500);
+				} else {
+					speek("累死我了，主人！");
+				}
+				mSendCount++;
+				break;
+			default:
+				break;
+			}
+		};
 	}
 }
