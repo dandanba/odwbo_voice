@@ -1,4 +1,9 @@
 package com.odwbo.voice;
+
+import java.net.URLEncoder;
+
+import org.apache.http.Header;
+
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.os.Environment;
@@ -6,6 +11,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
 import android.widget.ImageView;
+
 import com.iflytek.cloud.InitListener;
 import com.iflytek.cloud.SpeechConstant;
 import com.iflytek.cloud.SpeechError;
@@ -14,7 +20,10 @@ import com.iflytek.cloud.SpeechUnderstander;
 import com.iflytek.cloud.SpeechUnderstanderListener;
 import com.iflytek.cloud.SynthesizerListener;
 import com.iflytek.cloud.UnderstanderResult;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.ResponseHandlerInterface;
 import com.odwbo.voice.api.Answer;
+import com.odwbo.voice.api.Query;
 import com.odwbo.voice.api.Result;
 
 // 语音理解＋合成
@@ -119,6 +128,29 @@ public class UnderstanderActivity extends BTActivity implements InitListener {
 	private SpeechUnderstander mSpeechUnderstander;// 语义理解对象（语音到语义）。
 	private SpeechSynthesizer mTts;// 语音合成对象
 	private ImageView mFaceImage;
+	private ResponseHandlerInterface mResponseHandler = new AsyncHttpResponseHandler() {
+		@Override
+		public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
+			final String json = StringUtils.byteArray2String(arg2);
+			Query query = GsonUtils.fromJson(json, Query.class);
+			String text = query.getDst();
+			if (!TextUtils.isEmpty(text)) {
+				mFaceImage.setImageResource(R.anim.think_anim);
+				AnimationDrawable animationDrawable = (AnimationDrawable) mFaceImage.getDrawable();
+				animationDrawable.start();
+			} else {
+				text = "sorry";
+			}
+			int code = mTts.startSpeaking(text, mTtsListener);
+			log("onStartSpeaking:" + code);
+		}
+
+		@Override
+		public void onFailure(int arg0, Header[] arg1, byte[] arg2, Throwable arg3) {
+			log("onError:" + arg0);
+			startUnderstanding(); // 发生错误回调
+		}
+	};
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -216,12 +248,25 @@ public class UnderstanderActivity extends BTActivity implements InitListener {
 			if (text.length() > 30) {
 				text = text.substring(0, 30);
 			}
-			mFaceImage.setImageResource(R.anim.think_anim);
-			AnimationDrawable animationDrawable = (AnimationDrawable) mFaceImage.getDrawable();
-			animationDrawable.start();
-			int code = mTts.startSpeaking(text, mTtsListener);
-			log("onStartSpeaking:" + code);
+			if (true) {
+				if (!TextUtils.isEmpty(text)) {
+					mFaceImage.setImageResource(R.anim.think_anim);
+					AnimationDrawable animationDrawable = (AnimationDrawable) mFaceImage.getDrawable();
+					animationDrawable.start();
+				} else {
+					text = "没听懂啊。";
+				}
+				int code = mTts.startSpeaking(text, mTtsListener);
+				log("onStartSpeaking:" + code);
+			} else {
+				String url = getUrl(URLEncoder.encode(text));
+				SpeechApp.getInstance().mHttpClient.get(url, mResponseHandler);
+			}
 		}
+	}
+
+	private String getUrl(String text) {
+		return "http://openapi.baidu.com/public/2.0/bmt/translate?client_id=4qKrb8U8CSkiCRjud0Up8ueE&q=" + text + "&from=zh&to=en";
 	}
 
 	class UnderstanderHandler extends Handler {
