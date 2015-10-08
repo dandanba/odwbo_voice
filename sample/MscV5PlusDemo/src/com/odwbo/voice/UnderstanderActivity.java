@@ -128,7 +128,7 @@ public class UnderstanderActivity extends BTActivity implements InitListener {
 	private SpeechUnderstander mSpeechUnderstander;// 语义理解对象（语音到语义）。
 	private SpeechSynthesizer mTts;// 语音合成对象
 	private ImageView mFaceImage;
-	private ResponseHandlerInterface mResponseHandler = new AsyncHttpResponseHandler() {
+	private final ResponseHandlerInterface mResponseHandler = new AsyncHttpResponseHandler() {
 		@Override
 		public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
 			final String json = StringUtils.byteArray2String(arg2);
@@ -248,7 +248,7 @@ public class UnderstanderActivity extends BTActivity implements InitListener {
 			if (text.length() > 30) {
 				text = text.substring(0, 30);
 			}
-			if (true) {
+			if (Constants.sChinese) {
 				if (!TextUtils.isEmpty(text)) {
 					mFaceImage.setImageResource(R.anim.think_anim);
 					AnimationDrawable animationDrawable = (AnimationDrawable) mFaceImage.getDrawable();
