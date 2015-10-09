@@ -4,6 +4,7 @@ import android.app.Application;
 import com.iflytek.cloud.SpeechConstant;
 import com.iflytek.cloud.SpeechUtility;
 import com.loopj.android.http.AsyncHttpClient;
+import com.odwbo.voice.R;
 
 public class SpeechApp extends Application {
 	public final AsyncHttpClient mHttpClient = new AsyncHttpClient();

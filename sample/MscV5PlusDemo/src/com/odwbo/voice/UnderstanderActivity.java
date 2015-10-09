@@ -25,6 +25,7 @@ import com.loopj.android.http.ResponseHandlerInterface;
 import com.odwbo.voice.api.Answer;
 import com.odwbo.voice.api.Query;
 import com.odwbo.voice.api.Result;
+import com.odwbo.voice.R;
 
 // 语音理解＋合成
 public class UnderstanderActivity extends BTActivity implements InitListener {
