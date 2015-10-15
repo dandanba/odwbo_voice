@@ -138,6 +138,7 @@ public class UnderstanderActivity extends BTActivity implements InitListener {
 			Query query = GsonUtils.fromJson(json, Query.class);
 			String text = query.getDst();
 			if (!TextUtils.isEmpty(text)) {
+				mVoiceText.setText(text);
 				mFaceImage.setImageResource(R.anim.think_anim);
 				AnimationDrawable animationDrawable = (AnimationDrawable) mFaceImage.getDrawable();
 				animationDrawable.start();

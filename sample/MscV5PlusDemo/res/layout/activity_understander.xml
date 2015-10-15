@@ -17,7 +17,7 @@
 		android:layout_margin="20dp"
 		android:ellipsize="end"
 		android:gravity="center"
-		android:singleLine="true"
+		android:lines="2"
 		android:textColor="#ffffff"
-		android:textSize="17sp" />
+		android:textSize="33sp" />
 </FrameLayout>
