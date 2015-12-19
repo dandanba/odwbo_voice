@@ -270,7 +270,7 @@ public class UnderstanderActivity extends BTActivity implements InitListener {
 				
 				speek("好的！主人！");
 				return;
-			} else if (text.equals("挺")) {
+			} else if (text.equals("停")) {
 				mSendHandler.removeCallbacksAndMessages(null);
 				speek("好的！主人！");
 				return;
