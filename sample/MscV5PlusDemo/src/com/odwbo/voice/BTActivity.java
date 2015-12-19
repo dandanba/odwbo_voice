@@ -35,6 +35,7 @@ public class BTActivity extends BaseActivity {
 	}
 
 	public void onSendTextMesage(String text) {
+		Log.i("Chat", "send<--------" + text);
 		if (mBTManager != null) {
 			mBTManager.sendStringData(text);
 		}

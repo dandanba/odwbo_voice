@@ -10,6 +10,7 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -38,7 +39,8 @@ public class UnderstanderActivity extends BTActivity implements InitListener {
 			final Result r;
 			final Answer answer;
 			if (!TextUtils.isEmpty(text)// text 有效
-					&& (r = GsonUtils.fromJson(text, Result.class)) != null// result 有效
+					&& (r = GsonUtils.fromJson(text, Result.class)) != null// result
+																			// 有效
 					&& (answer = r.getAnswer()) != null) { // answer 有效
 				speek(answer.text);
 			} else {
@@ -241,14 +243,32 @@ public class UnderstanderActivity extends BTActivity implements InitListener {
 			if (text.equals("转")) { // 特别控制
 				mSendHandler.mSendCount = 0;
 				mSendHandler.sendEmptyMessage(1);
+				
+				speek("好的！主人！");
 				return;
 			} else if (text.equals("走")) {
 				mSendHandler.mSendCount = 0;
 				mSendHandler.sendEmptyMessage(2);
+				
+				speek("好的！主人！");
 				return;
 			} else if (text.equals("退")) {
 				mSendHandler.mSendCount = 0;
 				mSendHandler.sendEmptyMessage(3);
+				
+				speek("好的！主人！");
+				return;
+			} else if (text.equals("看看")) {
+				mSendHandler.mSendCount = 0;
+				mSendHandler.sendEmptyMessage(4);
+
+				speek("好的！主人！");
+				return;
+			} else if (text.equals("你好")) {
+				mSendHandler.mSendCount = 0;
+				mSendHandler.sendEmptyMessage(5);
+				
+				speek("好的！主人！");
 				return;
 			}
 			if (text.length() > 30) {
@@ -295,7 +315,7 @@ public class UnderstanderActivity extends BTActivity implements InitListener {
 		public void handleMessage(Message msg) {
 			final int what = msg.what;
 			switch (msg.what) {
-			case 1:
+			case 1:// 转
 				removeMessages(what);
 				if (mSendCount < 9) {
 					onSendTextMesage("speed:" + 250);
@@ -305,7 +325,7 @@ public class UnderstanderActivity extends BTActivity implements InitListener {
 				}
 				mSendCount++;
 				break;
-			case 2:
+			case 2:// 走
 				removeMessages(what);
 				if (mSendCount < 8) {
 					onSendTextMesage("touch:" + 900 + ":" + 150);
@@ -315,13 +335,51 @@ public class UnderstanderActivity extends BTActivity implements InitListener {
 				}
 				mSendCount++;
 				break;
-			case 3:
+			case 3:// 退
 				removeMessages(what);
 				if (mSendCount < 8) {
 					onSendTextMesage("touch:" + 2700 + ":" + 150);
 					sendEmptyMessageDelayed(what, 500);
 				} else {
 					speek("累死我了，主人！");
+				}
+				mSendCount++;
+				break;
+			case 4:// 看看
+				removeMessages(what);
+				Log.i(TAG, "kankan" + mSendCount);
+				if (mSendCount < 8 * 4) {
+					if (mSendCount < 8) {
+						onSendTextMesage("speed:" + 150);
+					} else if (mSendCount < 16) {
+						onSendTextMesage("speed:" + -150);
+					} else if (mSendCount < 16) {
+						onSendTextMesage("touch:" + 900 + ":" + 150);
+					} else {
+						onSendTextMesage("touch:" + 2700 + ":" + 150);
+					}
+					sendEmptyMessageDelayed(what, 500);
+				} else {
+					speek("完成了！主人！");
+				}
+				mSendCount++;
+				break;
+			case 5:// 你好
+				removeMessages(what);
+				Log.i(TAG, "kankan" + mSendCount);
+				if (mSendCount < 5 * 4) {
+					if (mSendCount < 4) {
+						onSendTextMesage("speed:" + 150);
+					} else if (mSendCount < 8) {
+						onSendTextMesage("speed:" + -150);
+					} else if (mSendCount < 12) {
+						onSendTextMesage("speed:" + 150);
+					} else if (mSendCount < 16) {
+						onSendTextMesage("touch:" + 900 + ":" + 150);
+					}
+					sendEmptyMessageDelayed(what, 500);
+				} else {
+					speek("您好！主人！");
 				}
 				mSendCount++;
 				break;

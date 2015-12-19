@@ -7,7 +7,7 @@ import android.widget.Toast;
 
 // 语音理解＋合成
 public class BaseActivity extends FragmentActivity {
-	private static String TAG = "odwbo";
+	static String TAG = "odwbo";
 	private Toast mToast;
 
 	@Override
