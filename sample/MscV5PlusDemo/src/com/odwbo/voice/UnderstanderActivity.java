@@ -351,7 +351,6 @@ public class UnderstanderActivity extends BTActivity implements InitListener {
 				break;
 			case 4:// 看看
 				removeMessages(what);
-				Log.i(TAG, "kankan" + mSendCount);
 				if (mSendCount < 8 * 4) {
 					if (mSendCount < 8) {
 						onSendTextMesage("speed:" + 150);
