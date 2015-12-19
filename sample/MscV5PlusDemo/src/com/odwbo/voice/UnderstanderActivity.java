@@ -243,19 +243,19 @@ public class UnderstanderActivity extends BTActivity implements InitListener {
 			if (text.equals("转")) { // 特别控制
 				mSendHandler.mSendCount = 0;
 				mSendHandler.sendEmptyMessage(1);
-				
+
 				speek("好的！主人！");
 				return;
 			} else if (text.equals("走")) {
 				mSendHandler.mSendCount = 0;
 				mSendHandler.sendEmptyMessage(2);
-				
+
 				speek("好的！主人！");
 				return;
 			} else if (text.equals("退")) {
 				mSendHandler.mSendCount = 0;
 				mSendHandler.sendEmptyMessage(3);
-				
+
 				speek("好的！主人！");
 				return;
 			} else if (text.equals("看看")) {
@@ -267,11 +267,11 @@ public class UnderstanderActivity extends BTActivity implements InitListener {
 			} else if (text.equals("你好")) {
 				mSendHandler.mSendCount = 0;
 				mSendHandler.sendEmptyMessage(5);
-				
+
 				speek("好的！主人！");
 				return;
 			} else if (text.equals("停")) {
-				mSendHandler.removeCallbacksAndMessages(null);
+				mSendHandler.mSendCount = 10000; // 超过范围
 				speek("好的！主人！");
 				return;
 			}
