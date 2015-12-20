@@ -39,8 +39,7 @@ public class UnderstanderActivity extends BTActivity implements InitListener {
 			final Result r;
 			final Answer answer;
 			if (!TextUtils.isEmpty(text)// text 有效
-					&& (r = GsonUtils.fromJson(text, Result.class)) != null// result
-																			// 有效
+					&& (r = GsonUtils.fromJson(text, Result.class)) != null// result 有效
 					&& (answer = r.getAnswer()) != null) { // answer 有效
 				speek(answer.text);
 			} else {
@@ -356,7 +355,7 @@ public class UnderstanderActivity extends BTActivity implements InitListener {
 						onSendTextMesage("speed:" + 150);
 					} else if (mSendCount < 16) {
 						onSendTextMesage("speed:" + -150);
-					} else if (mSendCount < 16) {
+					} else if (mSendCount < 24) {
 						onSendTextMesage("touch:" + 900 + ":" + 150);
 					} else {
 						onSendTextMesage("touch:" + 2700 + ":" + 150);
